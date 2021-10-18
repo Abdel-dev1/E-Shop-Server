@@ -21,15 +21,15 @@ const userShema= mongoose.Schema({
     },
     isAdmin:{
         type: Boolean,
-        default:true,
+        default:false,
     },
     apartment:{
         type:String,
-        required:true,
+        //required:true,
     },
     zip:{
         type:String,
-        required:true
+        //required:true
     },
     city:{
         type:String,
