@@ -19,7 +19,7 @@ const storage = multer.diskStorage({
         if(isVald){
             uploadError=null
         }
-      cb(uploadError, 'C:/Users/star1/Desktop/React native project/BACKEND/public/uploads')
+      cb(uploadError, 'D:/React native project/BACKEND/public/uploads')
     },
     filename: function (req, file, cb) {
         const fileName=file.originalname.split(' ').join('-');
@@ -56,7 +56,6 @@ router.post('/', uploadOptions.single('image'), async (req, res)=>{
     const category = await Category.findById(req.body.category);
 
     if(!category) return res.status(400).send('category does not exist');
-    const file=req.file;
     if(!file) return res.status(400).send('Image  does not exist');
 
         const fileName=req.file.filename;
