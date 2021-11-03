@@ -25,20 +25,28 @@ const userShema= mongoose.Schema({
     },
     apartment:{
         type:String,
-        required:true,
+        required:false,
     },
     zip:{
         type:String,
-        required:true
+        required:false
     },
     city:{
         type:String,
-        required:true
+        required:false
     },
     country:{
         type:String,
-        required:true
+        required:false
     },
 })
+
+userShema.virtual('id').get(function(){
+    return this._id.toHexString();
+});
+
+userShema.set('toJSON', {
+    virtuals:true,
+});
 
 exports.User= mongoose.model('User', userShema);

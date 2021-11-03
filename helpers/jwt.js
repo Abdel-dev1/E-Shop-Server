@@ -7,7 +7,7 @@ function authJwt() {
         return expressJwt({
         secret,
         algorithms:['RS256','HS256'],
-        isRevoked: isRevoked,
+        //isRevoked: isRevoked,
     }).unless({
         path: [
             {url:/\/api\/v1\/products(.*)/, methods:['GET','OPTIONS'] },

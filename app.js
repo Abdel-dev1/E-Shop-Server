@@ -22,6 +22,10 @@ const productsRouter=require('./routers/products');
 const usersRouter=require('./routers/users');
 const categoryRouter=require('./routers/categories');
 const orderRouter=require('./routers/orders');
+const conversationRouter=require('./routers/conversations');
+const messageRouter=require('./routers/messages');
+
+
 
 
 const api= process.env.API_URL;
@@ -30,6 +34,10 @@ app.use(api+'/products',productsRouter);
 app.use(api+'/users',usersRouter);
 app.use(api+'/categories',categoryRouter);
 app.use(api+'/orders',orderRouter);
+app.use(api+'/conversations',conversationRouter);
+app.use(api+'/messages',messageRouter);
+
+
 
 //connection to DB
 mongoose.connect(process.env.CONNECTION_STRING, {
@@ -48,4 +56,9 @@ mongoose.connect(process.env.CONNECTION_STRING, {
 // server
 app.listen(3000,()=>{
     console.log('server is runinnig on http://localhost:3000');
+}) 
+/* var server = app.listen(process.env.PORT || 3000, function(){
+    var port = server.address().port;
+    console.log("Express is working on port: " + port)
 })
+ */

@@ -5,7 +5,7 @@ const bcrypt=require('bcryptjs');
 const jwt=require('jsonwebtoken');
 
 router.get('/', async (req, res)=>{
-    const userList= await User.find().populate('mongoose.module(user');  //.select('-passwordHash');
+    const userList= await User.find().populate('mongoose.module(user').select('-passwordHash');  //.select('-passwordHash');
     if(!userList){
         res.status(500).json({success:false})
     }
