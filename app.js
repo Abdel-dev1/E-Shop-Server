@@ -66,7 +66,8 @@ const io= require("socket.io")(httpServer);
 io.on("connection", (socket)=>{
     console.log("a user connected.");
 })
-httpServer.listen(3000);
+var port = server.address().port;
+httpServer.listen(process.env.PORT || 3000);
 
 
 
