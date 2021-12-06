@@ -12,7 +12,7 @@ const secret=process.env.secret;
 //************middleware************
 
 app.use(bodyParser.json());
-app.use(morgan('tiny'));  //display log format
+app.use(morgan('tiny'));  //display log format http
 app.use(authJwt());  //{secret:secret, algorithms:['RS256','HS256']})
 app.use(errorHandler);
 
