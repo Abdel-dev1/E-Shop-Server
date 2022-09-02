@@ -58,21 +58,21 @@ mongoose.connect(process.env.CONNECTION_STRING, {
 /*  var server=app.listen(3000,()=>{
     console.log('server is runinnig on http://localhost:3000');
 })  */
-const { createServer, Server } = require("http");
-const httpServer=require("http").createServer(app);
-const io= require("socket.io")(httpServer);
+//const { createServer, Server } = require("http");
+//const httpServer=require("http").createServer(app);
+//const io= require("socket.io")(httpServer);
 // Socket io
-
+/* 
 io.on("connection", (socket)=>{
     console.log("a user connected.");
-})
-var port = server.address().port;
-httpServer.listen(process.env.PORT || 3000);
+}) */
+//var port = server.address().port;
+//httpServer.listen(process.env.PORT || 3000);
 
 
 
-/* var server = app.listen(process.env.PORT || 3000, function(){
+ var server = app.listen(process.env.PORT || 3000, function(){
     var port = server.address().port;
     console.log("Express is working on port: " + port)
 })
- */
+ 
