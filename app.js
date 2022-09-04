@@ -66,7 +66,10 @@ const io = require("socket.io")(httpServer, {
 
 io.on("connection", (socket) => {
   console.log("a user is connected");
-  io.emit("Welcome","hello this is socket")
+  //io.emit("Welcome","hello this is socket")
+  socket.on("addUser",userId=>{
+    console.log(userId)
+  })
 });
 //var port = server.address().port;
 
