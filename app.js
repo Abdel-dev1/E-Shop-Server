@@ -64,11 +64,17 @@ const io = require("socket.io")(httpServer, {
 });
 // Socket io
 
+let users=[];
+const addUser=(userId,socketId)=>{
+  !users.some(user=>user.userId===userId) && users.push({userId,socketId})
+}
+
 io.on("connection", (socket) => {
-  console.log("a user is connected");
+  console.log("/*******************  a user is connected **********************/");
   //io.emit("Welcome","hello this is socket")
   socket.on("addUser",userId=>{
-    console.log('Id from Client ',userId)
+    addUser(userId,socket.id)
+    io.emit("getUsers",users)
   })
 });
 //var port = server.address().port;
