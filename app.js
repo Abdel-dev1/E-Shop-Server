@@ -68,7 +68,7 @@ io.on("connection", (socket) => {
   console.log("a user is connected");
   //io.emit("Welcome","hello this is socket")
   socket.on("addUser",userId=>{
-    console.log(userId)
+    console.log('Id from Client ',userId)
   })
 });
 //var port = server.address().port;
