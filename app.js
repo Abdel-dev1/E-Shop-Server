@@ -78,7 +78,7 @@ io.on("connection", (socket) => {
   //io.emit("Welcome","hello this is socket")
   socket.on("addUser",userId=>{
     addUser(userId,socket.id)
-    console.log("***** add User *****")
+    console.log(users)
     io.emit("getUsers",users)
   })
 
