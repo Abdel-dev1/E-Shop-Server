@@ -65,28 +65,33 @@ const io = require("socket.io")(httpServer, {
 });
 // Socket io
 
-let users=[];
-const addUser=(userId,socketId)=>{
-  !users.some(user=>user.userId===userId) && users.push({userId,socketId})
-}
-const removeUser=(socketId)=>{
-users=users.filter(user=>user.socketId!==socketId)
-}
+let users = [];
+const addUser = (userId, socketId) => {
+  !users.some((user) => user.userId === userId) &&
+    users.push({ userId, socketId });
+};
+const removeUser = (socketId) => {
+  users = users.filter((user) => user.socketId !== socketId);
+};
 
 io.on("connection", (socket) => {
-  console.log("/*******************  a user is connected **********************/");
+  console.log(
+    "/*******************  a user is connected **********************/"
+  );
   //io.emit("Welcome","hello this is socket")
-  socket.on("addUser",userId=>{
-    addUser(userId,socket.id)
-    console.log(users)
-    io.emit("getUsers",users)
-  })
+  socket.on("addUser", (userId) => {
+    addUser(userId, socket.id);
+    console.log(users);
+    io.emit("getUsers", users);
+  });
 
-  socket.on("disconnect",()=>{
-    console.log("/*******************  a user is Disconnected **********************/")
-    removeUser(socket.id)
-    io.emit("getUsers",users)
-  })
+  socket.on("disconnect", () => {
+    console.log(
+      "/*******************  a user is Disconnected **********************/"
+    );
+    removeUser(socket.id);
+    io.emit("getUsers", users);
+  });
 });
 //var port = server.address().port;
 
