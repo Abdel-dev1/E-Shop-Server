@@ -78,10 +78,12 @@ io.on("connection", (socket) => {
   //io.emit("Welcome","hello this is socket")
   socket.on("addUser",userId=>{
     addUser(userId,socket.id)
+    console.log("***** add User *****")
     io.emit("getUsers",users)
   })
 
   socket.on("disconnect",()=>{
+    console.log("/*******************  a user is Disconnected **********************/")
     removeUser(socket.id)
     io.emit("getUsers",users)
   })
